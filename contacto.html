@@ -11,33 +11,41 @@
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="sobre_mi.html">Sobre mí</a></li>
+        <li><a href="sobre-mi.html">Sobre mí</a></li>
         <li><a href="proyectos.html">Proyectos</a></li>
         <li><a href="habilidades.html">Habilidades</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="Form">
-    <h2>Formulario de contacto</h2>
-    <form>
+  <section id="form">
+    <h2>Formulario</h2>
+
+    <form id="contactForm">
       <label>Nombre:</label><br>
-      <input type="text" name="nombre" placeholder="Nombre"><br><br>
+      <input type="text" id="nombre" required><br><br>
 
       <label>Correo:</label><br>
-      <input type="email" name="correo" placeholder="Correo"><br><br>
+      <input type="email" id="correo" required><br><br>
 
       <label>Mensaje:</label><br>
-      <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea><br><br>
+      <textarea id="mensaje" rows="4" required></textarea><br><br>
 
-      <input type="submit" value="Enviar">
+      <button type="submit">Enviar</button>
     </form>
-    <h2>Otras formas de contacto</h2>
-    <p>Email: bryanalpizar1@gmail.com</p>
+
+    <p id="estado"></p>
   </section>
 
   <footer>
     <p>© 2025 Bryan Alpízar</p>
   </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <!-- JS personalizado -->
+  <script src="js/form.js"></script>
 </body>
 </html>

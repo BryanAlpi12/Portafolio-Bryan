@@ -119,3 +119,95 @@ footer {
 .Form {
   text-align: center;
 }
+
+/* SELECTOR simple */
+h1 {
+  color: #333;
+}
+
+/* COMBINADOR: hijo directo */
+nav > ul > li {
+  display: inline-block;
+}
+
+/* COMBINADOR: descendiente */
+section p {
+  margin-bottom: 10px;
+}
+
+/* PSEUDOCLASE */
+nav a:hover {
+  color: #ff6600;
+}
+
+input:focus {
+  border: 2px solid #ff6600;
+}
+/* ----- SECCIÓN CONTACTO ----- */
+#form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----- FORMULARIO ----- */
+#contactForm {
+  background: #04052a;
+  padding: 25px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Labels */
+#contactForm label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Inputs y textarea */
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Pseudoclase requerida por la evaluación */
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+}
+
+/* Botón */
+#contactForm button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Pseudoclase hover */
+#contactForm button:hover {
+  background-color: #ff6600;
+}
+
+/* Mensaje de estado */
+#estado {
+  margin-top: 15px;
+  color: green;
+}
+/* ----- FIN SECCIÓN CONTACTO ----- */
+
