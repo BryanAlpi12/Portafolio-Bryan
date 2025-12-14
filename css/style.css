@@ -1,213 +1,535 @@
-/*
-Fondo corner gradient animated sacado de MSHR.com
-INICIO
-*/
-@keyframes hero-gradient-animation {
-  0% {
-    --s-start-0: 5.202913631633715%;
-    --s-end-0: 53.01682626841344%;
-    --x-0: 1%;
-    --y-0: 0%;
-    --c-0: hsla(212.3684210526316, 81%, 25%, 0.61);
-  }
+/* ============================================
+   PORTAFOLIO BRYAN ALPÍZAR - ESTILO MODERNO
+   ============================================ */
 
-  100% {
-    --s-start-0: 5;
-    --s-end-0: 53.00384867488662%;
-    --x-0: 1%;
-    --y-0: 0%;
-    --c-0: hsla(212.3684210526316, 81%, 25%, 0.32);
-  }
-}
-
-@property --s-start-0 {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 5.202913631633715%;
-}
-
-@property --s-end-0 {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 53.01682626841344%;
-}
-
-@property --x-0 {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 1%;
-}
-
-@property --y-0 {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-
-@property --c-0 {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: hsla(212.3684210526316, 81%, 25%, 0.61);
-}
-/* FIN DEL FONDO */
-
-body,
-header,
-footer {
-  --x-0: 1%;
-  --y-0: 0%;
-  --c-0: hsla(212.3684210526316, 81%, 25%, 0.61);
-  background-color: hsla(213.17532987953427, 65%, 6%, 1);
-  background-image: radial-gradient(
-    circle at var(--x-0) var(--y-0),
-    var(--c-0) var(--s-start-0),
-    transparent var(--s-end-0)
-  );
-  animation: hero-gradient-animation 10s linear infinite alternate;
-  background-blend-mode: normal;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0a0e27;
+  color: #e0e0e0;
+  overflow-x: hidden;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  padding-top: 140px;
 }
 
+/* ============================================
+   PARTÍCULAS DE FONDO
+   ============================================ */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(100, 200, 255, 0.3);
+  border-radius: 50%;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-100px) translateX(50px); }
+  50% { transform: translateY(-50px) translateX(-50px); }
+  75% { transform: translateY(-150px) translateX(100px); }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
 header {
-  background-color: #a6c4d2;
-  color: #090d4f;
-  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(100, 200, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
   padding: 15px 0;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+  text-align: center;
+  font-size: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+}
+
+nav {
+  text-align: center;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 10px;
-}
-
-nav a {
-  color: #090d4f;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: overline;
-}
-
-section {
-  flex: 1;
-  padding: 20px;
-  text-align: left;
-}
-
-footer {
-  background-color: #a6c4d2;
-  color: #090d4f;
-  text-align: center;
-  padding: 10px;
-  margin-top: auto;
-}
-
-.Form {
-  text-align: center;
-}
-
-/* SELECTOR simple */
-h1 {
-  color: #333;
-}
-
-/* COMBINADOR: hijo directo */
-nav > ul > li {
   display: inline-block;
 }
 
-/* COMBINADOR: descendiente */
-section p {
-  margin-bottom: 10px;
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 10px;
 }
 
-/* PSEUDOCLASE */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
 nav a:hover {
-  color: #ff6600;
+  color: #64c8ff;
 }
 
-input:focus {
-  border: 2px solid #ff6600;
+nav a:hover::after {
+  width: 100%;
 }
-/* ----- SECCIÓN CONTACTO ----- */
-#form {
-  flex: 1;
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+section {
+  padding: 40px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease;
+}
+
+section h2 {
+  font-size: 42px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #b0b0b0;
+  margin-bottom: 20px;
+}
+
+section ul {
+  list-style: none;
+  padding: 0;
+}
+
+section ul li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border-left: 3px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+section ul li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(10px);
+}
+
+section ul li strong {
+  color: #64c8ff;
+}
+
+/* ============================================
+   SOBRE MÍ CON FOTO
+   ============================================ */
+.about-container {
   display: flex;
-  flex-direction: column;
+  gap: 60px;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-container {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
   justify-content: center;
 }
 
-/* ----- FORMULARIO ----- */
-#contactForm {
-  background: #04052a;
-  padding: 25px;
+.profile-image {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  z-index: -1;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.profile-image img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-/* Labels */
-#contactForm label {
-  font-weight: bold;
-  margin-top: 10px;
-  display: block;
+.about-content {
+  flex: 1;
+  min-width: 300px;
 }
 
-/* Inputs y textarea */
-#contactForm input,
-#contactForm textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
 }
 
-/* Pseudoclase requerida por la evaluación */
-#contactForm input:focus,
-#contactForm textarea:focus {
-  border-color: #ff6600;
-  outline: none;
+.skill-tag {
+  background: rgba(100, 200, 255, 0.1);
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #64c8ff;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-/* Botón */
-#contactForm button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
+.skill-tag:hover {
+  background: rgba(100, 200, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   PROYECTOS
+   ============================================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-/* Pseudoclase hover */
-#contactForm button:hover {
-  background-color: #ff6600;
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+  border-color: rgba(100, 200, 255, 0.5);
 }
 
-/* Mensaje de estado */
-#estado {
+.project-card h3 {
+  color: #64c8ff;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.project-card p {
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+/* ============================================
+   HABILIDADES
+   ============================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.skill-card h3 {
+  color: #64c8ff;
+  margin-bottom: 15px;
+}
+
+.skill-bar {
+  background: rgba(255, 255, 255, 0.1);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
   margin-top: 15px;
-  color: green;
 }
-/* ----- FIN SECCIÓN CONTACTO ----- */
 
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* ============================================
+   FORMULARIO DE CONTACTO
+   ============================================ */
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contactForm {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+#contactForm label {
+  display: block;
+  margin-bottom: 10px;
+  color: #64c8ff;
+  font-weight: 500;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+#contactForm textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+#contactForm button {
+  width: 100%;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+#contactForm button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+#estado {
+  margin-top: 20px;
+  color: #64c8ff;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  background: rgba(10, 14, 39, 0.95);
+  color: #b0b0b0;
+  text-align: center;
+  padding: 30px;
+  margin-top: 60px;
+  border-top: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #64c8ff;
+  border: 2px solid #64c8ff;
+}
+
+.btn-secondary:hover {
+  background: #64c8ff;
+  color: #0a0e27;
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  section h2 {
+    font-size: 32px;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contactForm {
+    padding: 30px 20px;
+  }
+}
