@@ -1,8 +1,3 @@
-// ============================================
-// SCRIPT DE PARTÍCULAS Y EFECTOS
-// ============================================
-
-// Crear partículas de fondo
 function createParticles() {
   const particlesContainer = document.createElement('div');
   particlesContainer.className = 'particles';
@@ -22,7 +17,6 @@ function createParticles() {
   }
 }
 
-// Header scroll effect
 function initHeaderScroll() {
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -34,7 +28,6 @@ function initHeaderScroll() {
   });
 }
 
-// Smooth scroll para navegación
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -43,21 +36,13 @@ function initSmoothScroll() {
       if (target) {
         const headerHeight = document.querySelector('header').offsetHeight;
         const targetPosition = target.offsetTop - headerHeight - 20;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       }
     });
   });
 }
 
-// Animación de barras de habilidades
 function initSkillBars() {
-  const observerOptions = {
-    threshold: 0.5
-  };
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -65,26 +50,19 @@ function initSkillBars() {
         progressBars.forEach(bar => {
           const width = bar.style.width;
           bar.style.width = '0';
-          setTimeout(() => {
-            bar.style.width = width;
-          }, 100);
+          setTimeout(() => { bar.style.width = width; }, 100);
         });
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.5 });
 
-  document.querySelectorAll('.skill-card').forEach(card => {
-    observer.observe(card);
-  });
+  document.querySelectorAll('.skill-card').forEach(card => observer.observe(card));
 }
 
-// Inicializar todo cuando cargue el DOM
 document.addEventListener('DOMContentLoaded', function() {
   createParticles();
   initHeaderScroll();
   initSmoothScroll();
-  
-  // Solo inicializar skill bars si existen en la página
   if (document.querySelector('.skill-card')) {
     initSkillBars();
   }
