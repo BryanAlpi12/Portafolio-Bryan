@@ -420,3 +420,147 @@ footer {
   .projects-grid, .skills-grid { grid-template-columns: 1fr; }
   #contactForm { padding: 30px 20px; }
 }
+/* ============================================
+   TIMELINE - EXPERIENCIA LABORAL
+   ============================================ */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  border: 1px solid rgba(100, 200, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: rgba(100, 200, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.timeline-header h3 {
+  color: #64c8ff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timeline-company {
+  color: #b0b0b0;
+  font-size: 15px;
+}
+
+.timeline-date {
+  background: rgba(102, 126, 234, 0.15);
+  border: 1px solid rgba(102, 126, 234, 0.4);
+  color: #667eea;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.timeline-list li {
+  background: none;
+  border-left: none;
+  padding: 6px 0 6px 20px;
+  margin: 0;
+  color: #b0b0b0;
+  font-size: 15px;
+  line-height: 1.6;
+  position: relative;
+  transform: none;
+}
+
+.timeline-list li:hover {
+  background: none;
+  transform: none;
+}
+
+.timeline-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.timeline-tags .skill-tag {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+/* ============================================
+   BOTÓN LINKEDIN
+   ============================================ */
+.btn-linkedin {
+  background: #0077b5;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 119, 181, 0.3);
+}
+
+.btn-linkedin:hover {
+  background: #005fa3;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 119, 181, 0.5);
+}
